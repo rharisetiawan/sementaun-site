@@ -95,9 +95,12 @@ if ('IntersectionObserver' in window) {
 /* ---------- footer year ---------- */
 document.getElementById('year').textContent = new Date().getFullYear();
 
-/* ---------- fan club form (no backend wired yet) ---------- */
+/* ---------- fan club form ----------
+   No signup backend yet, so this opens a pre-filled email to the band's inbox
+   instead. Swap for Mailchimp / Buttondown / Formspree once one is set up. */
 const fanclubForm = document.getElementById('fanclubForm');
 const fanclubStatus = document.getElementById('fanclubStatus');
+const FANCLUB_EMAIL = 'hello@weverx.com';
 
 fanclubForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -108,5 +111,9 @@ fanclubForm.addEventListener('submit', (e) => {
     return;
   }
 
-  fanclubStatus.textContent = 'Not hooked up to an email service yet — connect this form to Mailchimp / Buttondown / Formspree.';
+  const subject = encodeURIComponent('Fan Club Signup');
+  const body = encodeURIComponent(`Hey Sementaun, add me to the fan club!\n\nMy email: ${email}`);
+  window.location.href = `mailto:${FANCLUB_EMAIL}?subject=${subject}&body=${body}`;
+
+  fanclubStatus.textContent = `Opening your email app — send it to ${FANCLUB_EMAIL} and you're in.`;
 });

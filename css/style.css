@@ -710,9 +710,10 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   color: var(--ink);
   font-family: var(--font-label);
   font-size: 11px;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  padding: 10px 26px;
+  padding: 10px 20px;
+  white-space: nowrap;
   transition: opacity 0.32s var(--ease), transform 0.32s var(--ease);
   pointer-events: none;
 }
