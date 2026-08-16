@@ -1,0 +1,16 @@
+# Source/staging photos — the optimised copies the site uses live in assets/img/merch/
+/Merch/
+# duplicate of assets/img/logo-sementaun.png left over in the project root
+/logo-sementaun.png
+
+# OS / editor cruft
+Thumbs.db
+Desktop.ini
+.DS_Store
+*.swp
+.vscode/
+.idea/
+
+# Local tooling
+.vercel/
+node_modules/
