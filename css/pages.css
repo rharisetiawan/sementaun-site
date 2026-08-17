@@ -327,6 +327,30 @@
 
 .studio-card:hover { background: var(--surface); }
 
+/* the studio the band actually uses — flagged so readers know it's first-hand */
+.studio-card--featured {
+  background: linear-gradient(to right, rgba(165, 12, 12, 0.07), transparent 60%), var(--bg);
+  border-left: 2px solid var(--blood);
+}
+
+.studio-card--featured:hover {
+  background: linear-gradient(to right, rgba(165, 12, 12, 0.1), transparent 60%), var(--surface);
+}
+
+.studio-badge {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+  font-family: var(--font-label);
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--blood-bright);
+  border: 1px solid var(--blood);
+  padding: 4px 10px;
+}
+
 .studio-head {
   display: flex;
   align-items: baseline;
