@@ -82,7 +82,10 @@ function card(s) {
   );
 }
 
-const studios = JSON.parse(await readFile(dataPath, 'utf8'));
+// Editors on Windows (PowerShell's Set-Content, Notepad) prepend a UTF-8 BOM,
+// which JSON.parse rejects. Strip it so a local edit can't break the build.
+const raw = (await readFile(dataPath, 'utf8')).replace(/^﻿/, '');
+const studios = JSON.parse(raw);
 const verified = studios.filter((s) => s.verified).length;
 
 let html = await readFile(pagePath, 'utf8');
