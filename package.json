@@ -1,0 +1,10 @@
+{
+  "name": "sementaun-site",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Static site for Sementaun, a pop/rock cover band from Malang.",
+  "type": "module",
+  "scripts": {
+    "build": "node tools/build-studios.mjs"
+  }
+}

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Dashboard Studio — Sementaun</title>
+<link rel="icon" href="/assets/img/logo-sementaun.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/pages.css">
+<link rel="stylesheet" href="/css/admin.css">
+</head>
+<body class="admin-body">
+
+<header class="admin-header">
+  <div class="admin-header-inner">
+    <a href="/" class="admin-logo">
+      <img src="/assets/img/logo-sementaun-transparent.png" alt="Sementaun">
+      <span>Dashboard Studio</span>
+    </a>
+    <div class="admin-header-actions">
+      <span class="admin-state" id="dirtyState" hidden>Ada perubahan belum disimpan</span>
+      <button class="btn btn-outline btn-sm" id="btnLogout" hidden>Keluar</button>
+      <button class="btn btn-primary btn-sm" id="btnPublish" hidden disabled>Simpan &amp; Publikasikan</button>
+    </div>
+  </div>
+</header>
+
+<main class="admin-main">
+
+  <!-- ============ SETUP / LOGIN ============ -->
+  <section class="admin-panel" id="setupPanel">
+    <h1>Masuk ke Dashboard</h1>
+    <p class="admin-lead">
+      Dashboard ini menyimpan perubahan langsung ke repositori GitHub kamu. Vercel
+      otomatis membangun ulang situs setelahnya — biasanya selesai dalam 1–2 menit.
+    </p>
+
+    <div class="admin-callout admin-callout--warn">
+      <h3>Soal keamanan token</h3>
+      <p>
+        Token GitHub kamu disimpan di <strong>browser ini saja</strong> (localStorage), tidak
+        pernah dikirim ke server mana pun selain GitHub. Tapi konsekuensinya nyata:
+      </p>
+      <ul>
+        <li>Jangan pakai dashboard ini di komputer umum atau bersama.</li>
+        <li>Buat token <strong>fine-grained</strong> yang hanya bisa mengakses repo <code>sementaun-site</code>, jangan token classic yang bisa akses semua repo.</li>
+        <li>Kalau tokennya bocor, orang bisa mengubah isi situs ini — bukan akun GitHub kamu secara keseluruhan.</li>
+        <li>Kamu bisa cabut kapan saja di GitHub → Settings → Developer settings.</li>
+      </ul>
+    </div>
+
+    <details class="admin-help">
+      <summary>Cara membuat token (sekali saja)</summary>
+      <ol>
+        <li>Buka <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">github.com/settings/personal-access-tokens/new</a></li>
+        <li><strong>Token name</strong>: bebas, misalnya <code>Dashboard Sementaun</code></li>
+        <li><strong>Expiration</strong>: pilih sesuai selera (90 hari aman)</li>
+        <li><strong>Repository access</strong> → <em>Only select repositories</em> → pilih <code>sementaun-site</code></li>
+        <li><strong>Permissions</strong> → <em>Repository permissions</em> → <strong>Contents</strong> → set ke <strong>Read and write</strong></li>
+        <li>Klik <strong>Generate token</strong>, salin, lalu tempel di bawah</li>
+      </ol>
+    </details>
+
+    <form class="admin-form" id="setupForm">
+      <label>
+        <span>GitHub Personal Access Token</span>
+        <input type="password" id="tokenInput" placeholder="github_pat_…" autocomplete="off" required>
+      </label>
+      <label>
+        <span>Repositori</span>
+        <input type="text" id="repoInput" value="rharisetiawan/sementaun-site" required>
+      </label>
+      <button type="submit" class="btn btn-primary">Hubungkan</button>
+      <p class="admin-error" id="setupError" role="alert"></p>
+    </form>
+  </section>
+
+  <!-- ============ EDITOR ============ -->
+  <section class="admin-panel" id="editorPanel" hidden>
+
+    <div class="admin-stats">
+      <div class="admin-stat"><strong id="statTotal">0</strong><span>Total studio</span></div>
+      <div class="admin-stat"><strong id="statVerified">0</strong><span>Terverifikasi</span></div>
+      <div class="admin-stat"><strong id="statUnverified">0</strong><span>Belum</span></div>
+    </div>
+
+    <div class="admin-toolbar">
+      <input type="search" id="adminSearch" placeholder="Cari studio…" autocomplete="off">
+      <select id="adminFilter">
+        <option value="all">Semua status</option>
+        <option value="verified">Terverifikasi</option>
+        <option value="unverified">Belum terverifikasi</option>
+      </select>
+      <button class="btn btn-outline btn-sm" id="btnAdd">+ Tambah Studio</button>
+    </div>
+
+    <p class="admin-hint" id="listHint"></p>
+    <div class="admin-list" id="studioTable"></div>
+  </section>
+
+</main>
+
+<!-- ============ EDIT MODAL ============ -->
+<div class="admin-modal" id="editModal" hidden>
+  <div class="admin-modal-backdrop" data-close></div>
+  <div class="admin-modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="admin-modal-head">
+      <h2 id="modalTitle">Edit Studio</h2>
+      <button class="admin-close" data-close aria-label="Tutup">&times;</button>
+    </div>
+
+    <form class="admin-form admin-form--grid" id="editForm">
+      <label class="span-2">
+        <span>Nama studio *</span>
+        <input type="text" name="name" required>
+      </label>
+
+      <label class="span-2">
+        <span>Alamat lengkap</span>
+        <input type="text" name="address" placeholder="Jl. …, Kelurahan, Kecamatan, Kota Malang 65xxx">
+      </label>
+
+      <label>
+        <span>Kelurahan / area</span>
+        <input type="text" name="area">
+      </label>
+
+      <label>
+        <span>Kecamatan</span>
+        <select name="district">
+          <option value="Lowokwaru">Lowokwaru</option>
+          <option value="Sukun">Sukun</option>
+          <option value="Blimbing">Blimbing</option>
+          <option value="Klojen">Klojen</option>
+          <option value="Kedungkandang">Kedungkandang</option>
+          <option value="Kab. Malang">Kab. Malang</option>
+        </select>
+      </label>
+
+      <label>
+        <span>Tarif per jam</span>
+        <input type="text" name="price" placeholder="± Rp50.000/jam">
+      </label>
+
+      <label>
+        <span>Jam buka</span>
+        <input type="text" name="hours" placeholder="Setiap hari, 10.00 – 22.00">
+      </label>
+
+      <label>
+        <span>Telepon / WA</span>
+        <input type="text" name="phone" placeholder="+628…">
+      </label>
+
+      <label>
+        <span>Instagram (URL)</span>
+        <input type="url" name="instagram" placeholder="https://www.instagram.com/…">
+      </label>
+
+      <label class="span-2">
+        <span>Catatan</span>
+        <textarea name="notes" rows="3" placeholder="Fasilitas, kondisi alat, hal yang perlu diketahui…"></textarea>
+      </label>
+
+      <div class="span-2 admin-verify-box">
+        <label class="admin-check">
+          <input type="checkbox" name="verified" id="verifiedCheck">
+          <span>Tandai <strong>Terverifikasi</strong></span>
+        </label>
+        <p class="admin-note">
+          Centang ini hanya kalau alamat dan kontaknya sudah kamu konfirmasi sendiri —
+          telepon studionya, atau cek langsung. Tanggal di bawah akan tampil publik
+          sebagai bukti kapan data ini dicek.
+        </p>
+        <label id="verifiedOnWrap" hidden>
+          <span>Tanggal verifikasi</span>
+          <input type="text" name="verifiedOn" placeholder="17 Agustus 2026">
+        </label>
+      </div>
+
+      <div class="span-2 admin-modal-actions">
+        <button type="button" class="btn btn-ghost admin-danger" id="btnDelete">Hapus studio</button>
+        <div>
+          <button type="button" class="btn btn-outline btn-sm" data-close>Batal</button>
+          <button type="submit" class="btn btn-primary btn-sm">Simpan</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ============ PUBLISH MODAL ============ -->
+<div class="admin-modal" id="publishModal" hidden>
+  <div class="admin-modal-backdrop" data-close-publish></div>
+  <div class="admin-modal-box admin-modal-box--sm" role="dialog" aria-modal="true">
+    <div class="admin-modal-head">
+      <h2>Publikasikan Perubahan</h2>
+      <button class="admin-close" data-close-publish aria-label="Tutup">&times;</button>
+    </div>
+    <div class="admin-modal-body">
+      <p id="publishSummary" class="admin-lead"></p>
+      <label class="admin-form">
+        <span>Catatan perubahan (opsional)</span>
+        <input type="text" id="commitMsg" placeholder="Perbarui data studio">
+      </label>
+      <p class="admin-note">
+        Perubahan akan di-commit ke GitHub, lalu Vercel otomatis membangun ulang situs.
+        Butuh sekitar 1–2 menit sampai muncul di sementaunband.weverx.com.
+      </p>
+      <p class="admin-error" id="publishError" role="alert"></p>
+      <div class="admin-modal-actions">
+        <button type="button" class="btn btn-outline btn-sm" data-close-publish>Batal</button>
+        <button type="button" class="btn btn-primary btn-sm" id="btnConfirmPublish">Ya, Publikasikan</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="admin-toast" id="toast" hidden></div>
+
+<script src="/js/admin.js"></script>
+</body>
+</html>
