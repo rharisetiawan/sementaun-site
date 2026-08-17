@@ -471,6 +471,55 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 }
 
 /* ============================================
+   Watch / latest drop (live playlist sync)
+   ============================================ */
+.latest-drop { margin-bottom: 64px; }
+
+.latest-label {
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--blood-bright);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.latest-label::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--blood-bright);
+  box-shadow: 0 0 8px 1px rgba(216, 30, 30, 0.7);
+  animation: pulseDot 1.8s ease-in-out infinite;
+}
+
+.latest-embed {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--line);
+  background: #000;
+}
+
+.latest-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+/* ============================================
    Watch / video grid
    ============================================ */
 .video-grid {

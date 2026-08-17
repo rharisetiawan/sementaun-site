@@ -153,6 +153,26 @@
       </header>
 
       <!--
+        Live-synced with the YouTube playlist — no manual updates needed. Add a new
+        cover to the playlist and drag it to the top (YouTube Studio > playlist > reorder)
+        and it appears here automatically, since this embed just mirrors playlist order.
+      -->
+      <div class="latest-drop reveal">
+        <p class="latest-label">Fresh From the Playlist</p>
+        <div class="latest-embed">
+          <iframe
+            src="https://www.youtube.com/embed/videoseries?list=PLDFf_ivfkt3sz1c3-cFQjh1uiiLH9BtiQ"
+            title="Sementaun — full live cover playlist"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+        <p class="section-note">This one syncs live with the playlist on YouTube — new uploads show up here the moment they're added, no site update needed. The grid below is a hand-picked archive that gets refreshed separately.</p>
+      </div>
+
+      <h3 class="sub-heading reveal">The Archive</h3>
+
+      <!--
         Video cards use click-to-load embeds: the thumbnail loads first and the YouTube
         iframe is only injected on click. Keeps the page fast even with 30 videos.
         To add a new one, copy a .video-card block and set data-id to the YouTube video ID.
