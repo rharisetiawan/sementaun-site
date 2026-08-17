@@ -3,17 +3,71 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SEMENTAUN — Official Site</title>
-<meta name="description" content="Official site of Sementaun — a pop/rock cover band side project from Malang. Live covers, sessions, and merch.">
-<meta property="og:title" content="SEMENTAUN">
-<meta property="og:description" content="Pop/rock cover band side project. Live covers, sessions, and merch.">
+<title>Sementaun — Band Cover Pop/Rock asal Malang</title>
+<meta name="description" content="Situs resmi Sementaun, band cover pop/rock asal Malang. Kumpulan video live cover, jadwal sesi, merchandise, plus blog musik dan daftar studio band di Malang.">
+<link rel="canonical" href="https://sementaunband.weverx.com/">
+
 <meta property="og:type" content="website">
-<link rel="icon" href="assets/img/logo-sementaun.png">
+<meta property="og:url" content="https://sementaunband.weverx.com/">
+<meta property="og:title" content="Sementaun — Band Cover Pop/Rock asal Malang">
+<meta property="og:description" content="Video live cover, merchandise, blog musik, dan daftar studio band di Malang.">
+<meta property="og:image" content="https://sementaunband.weverx.com/assets/img/logo-sementaun.png">
+<meta property="og:site_name" content="Sementaun">
+<meta property="og:locale" content="id_ID">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/assets/img/logo-sementaun.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://i.ytimg.com">
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@200;300;400;500;600;700;800&family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="/css/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MusicGroup",
+  "name": "Sementaun",
+  "url": "https://sementaunband.weverx.com/",
+  "logo": "https://sementaunband.weverx.com/assets/img/logo-sementaun.png",
+  "image": "https://sementaunband.weverx.com/assets/img/logo-sementaun.png",
+  "description": "Band cover pop/rock asal Malang, Indonesia. Side project yang rutin merekam sesi latihan dan live cover.",
+  "genre": ["Pop", "Rock", "Cover Band"],
+  "email": "hello@weverx.com",
+  "foundingLocation": {
+    "@type": "Place",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Malang",
+      "addressRegion": "Jawa Timur",
+      "addressCountry": "ID"
+    }
+  },
+  "sameAs": [
+    "https://www.instagram.com/sementaunband",
+    "https://www.youtube.com/playlist?list=PLDFf_ivfkt3sz1c3-cFQjh1uiiLH9BtiQ",
+    "https://legacy.reverbnation.com/sementaun"
+  ],
+  "member": [
+    { "@type": "Person", "name": "Irnanda", "roleName": "Vokal" },
+    { "@type": "Person", "name": "Yoski", "roleName": "Vokal" },
+    { "@type": "Person", "name": "Febri", "roleName": "Gitar" },
+    { "@type": "Person", "name": "Khoirul", "roleName": "Gitar" },
+    { "@type": "Person", "name": "Hari", "roleName": "Bass" },
+    { "@type": "Person", "name": "Rizky", "roleName": "Drum" },
+    { "@type": "Person", "name": "Rendy", "roleName": "Keyboard" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Sementaun",
+  "url": "https://sementaunband.weverx.com/",
+  "inLanguage": "id-ID"
+}
+</script>
 </head>
 <body>
 
@@ -23,7 +77,7 @@
 <header class="site-header" id="siteHeader">
   <nav class="nav container" aria-label="Main">
     <a href="#hero" class="nav-logo" aria-label="Sementaun home">
-      <img src="assets/img/logo-sementaun-transparent.png" alt="Sementaun">
+      <img src="/assets/img/logo-sementaun-transparent.png" alt="Sementaun">
     </a>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
@@ -31,8 +85,9 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
       <li><a href="#watch">Watch</a></li>
-      <li><a href="#sessions">Sessions</a></li>
       <li><a href="#merch">Merch</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="/studio">Studio</a></li>
       <li><a href="#fanclub" class="nav-cta">Fan Club</a></li>
     </ul>
   </nav>
@@ -44,7 +99,7 @@
   <section id="hero" class="hero">
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="hero-content">
-      <img src="assets/img/logo-sementaun-transparent.png" alt="Sementaun" class="hero-logo">
+      <img src="/assets/img/logo-sementaun-transparent.png" alt="Sementaun" class="hero-logo">
       <p class="hero-tagline">Started as a joke. Still kinda is.</p>
       <div class="hero-cta">
         <a href="#watch" class="btn btn-primary">Watch the Covers</a>
@@ -241,7 +296,7 @@
         <article class="merch-card reveal">
           <a class="merch-link" href="mailto:hello@weverx.com?subject=Order%20-%20Sementaun%20Hoodie" aria-label="Order Sementaun Hoodie via email">
             <div class="merch-img">
-              <img src="assets/img/merch/hoodie.jpg" alt="Sementaun Hoodie" loading="lazy">
+              <img src="/assets/img/merch/hoodie.jpg" alt="Sementaun Hoodie" loading="lazy">
               <span class="merch-action">Order via Email</span>
             </div>
             <div class="merch-meta">
@@ -254,7 +309,7 @@
         <article class="merch-card reveal">
           <a class="merch-link" href="mailto:hello@weverx.com?subject=Order%20-%20Sementaun%20Work%20Shirt" aria-label="Order Sementaun Work Shirt via email">
             <div class="merch-img">
-              <img src="assets/img/merch/workshirt.jpg" alt="Sementaun Work Shirt" loading="lazy">
+              <img src="/assets/img/merch/workshirt.jpg" alt="Sementaun Work Shirt" loading="lazy">
               <span class="merch-action">Order via Email</span>
             </div>
             <div class="merch-meta">
@@ -267,7 +322,7 @@
         <article class="merch-card reveal">
           <a class="merch-link" href="mailto:hello@weverx.com?subject=Order%20-%20Sementaun%20Shorts" aria-label="Order Sementaun Shorts via email">
             <div class="merch-img">
-              <img src="assets/img/merch/shorts.jpg" alt="Sementaun Shorts" loading="lazy">
+              <img src="/assets/img/merch/shorts.jpg" alt="Sementaun Shorts" loading="lazy">
               <span class="merch-action">Order via Email</span>
             </div>
             <div class="merch-meta">
@@ -280,7 +335,7 @@
         <article class="merch-card reveal">
           <a class="merch-link" href="mailto:hello@weverx.com?subject=Order%20-%20Sementaun%20Backpack" aria-label="Order Sementaun Backpack via email">
             <div class="merch-img">
-              <img src="assets/img/merch/backpack.jpg" alt="Sementaun Backpack" loading="lazy">
+              <img src="/assets/img/merch/backpack.jpg" alt="Sementaun Backpack" loading="lazy">
               <span class="merch-action">Order via Email</span>
             </div>
             <div class="merch-meta">
@@ -293,7 +348,7 @@
         <article class="merch-card reveal">
           <a class="merch-link" href="mailto:hello@weverx.com?subject=Order%20-%20Sementaun%20Cap" aria-label="Order Sementaun Cap via email">
             <div class="merch-img">
-              <img src="assets/img/merch/cap.jpg" alt="Sementaun Cap" loading="lazy">
+              <img src="/assets/img/merch/cap.jpg" alt="Sementaun Cap" loading="lazy">
               <span class="merch-action">Order via Email</span>
             </div>
             <div class="merch-meta">
@@ -306,7 +361,7 @@
         <article class="merch-card reveal">
           <a class="merch-link" href="mailto:hello@weverx.com?subject=Order%20-%20Sementaun%20Mug" aria-label="Order Sementaun Mug via email">
             <div class="merch-img">
-              <img src="assets/img/merch/mug.jpg" alt="Sementaun Mug" loading="lazy">
+              <img src="/assets/img/merch/mug.jpg" alt="Sementaun Mug" loading="lazy">
               <span class="merch-action">Order via Email</span>
             </div>
             <div class="merch-meta">
@@ -319,7 +374,7 @@
         <article class="merch-card reveal">
           <a class="merch-link" href="mailto:hello@weverx.com?subject=Order%20-%20Sementaun%20Mousepad" aria-label="Order Sementaun Mousepad via email">
             <div class="merch-img">
-              <img src="assets/img/merch/mousepad.jpg" alt="Sementaun Mousepad" loading="lazy">
+              <img src="/assets/img/merch/mousepad.jpg" alt="Sementaun Mousepad" loading="lazy">
               <span class="merch-action">Order via Email</span>
             </div>
             <div class="merch-meta">
@@ -332,7 +387,7 @@
         <article class="merch-card reveal">
           <a class="merch-link" href="mailto:hello@weverx.com?subject=Order%20-%20Sementaun%20Keychain%20%26%20Lanyard%20Set" aria-label="Order Sementaun Keychain and Lanyard via email">
             <div class="merch-img">
-              <img src="assets/img/merch/keychain.jpg" alt="Sementaun Keychain and Lanyard" loading="lazy">
+              <img src="/assets/img/merch/keychain.jpg" alt="Sementaun Keychain and Lanyard" loading="lazy">
               <span class="merch-action">Order via Email</span>
             </div>
             <div class="merch-meta">
@@ -345,7 +400,7 @@
         <article class="merch-card reveal">
           <a class="merch-link" href="mailto:hello@weverx.com?subject=Order%20-%20Sementaun%20Wristband" aria-label="Order Sementaun Wristband via email">
             <div class="merch-img">
-              <img src="assets/img/merch/wristband.jpg" alt="Sementaun Wristband" loading="lazy">
+              <img src="/assets/img/merch/wristband.jpg" alt="Sementaun Wristband" loading="lazy">
               <span class="merch-action">Order via Email</span>
             </div>
             <div class="merch-meta">
@@ -379,7 +434,7 @@
 <footer class="site-footer">
   <div class="container footer-grid">
     <div class="footer-brand">
-      <img src="assets/img/logo-sementaun-transparent.png" alt="Sementaun" class="footer-logo">
+      <img src="/assets/img/logo-sementaun-transparent.png" alt="Sementaun" class="footer-logo">
       <p>Pop/rock cover band side project from Malang, Indonesia.</p>
     </div>
     <nav class="footer-col" aria-label="Explore">
@@ -388,6 +443,8 @@
       <a href="#watch">Watch</a>
       <a href="#sessions">Sessions</a>
       <a href="#merch">Merch</a>
+      <a href="/blog">Blog</a>
+      <a href="/studio">Studio Band Malang</a>
     </nav>
     <nav class="footer-col" aria-label="Follow">
       <h4>Follow</h4>
@@ -398,10 +455,10 @@
   </div>
   <div class="container footer-bottom">
     <p>&copy; <span id="year"></span> Sementaun. All songs belong to their original artists.</p>
-    <p>Booking &amp; collabs — hit us up on social media.</p>
+    <p>Booking &amp; collabs — <a href="mailto:hello@weverx.com">hello@weverx.com</a></p>
   </div>
 </footer>
 
-<script src="js/script.js"></script>
+<script src="/js/script.js"></script>
 </body>
 </html>

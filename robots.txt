@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sementaunband.weverx.com/sitemap.xml

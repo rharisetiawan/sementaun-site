@@ -25,6 +25,12 @@ while ($listener.IsListening) {
     if ($path -eq "/") { $path = "/index.html" }
     $filePath = Join-Path $root ($path.TrimStart("/"))
 
+    # Match Vercel's static routing: /studio and /studio/ both serve /studio/index.html
+    if (-not (Test-Path $filePath -PathType Leaf)) {
+        $indexCandidate = Join-Path $filePath "index.html"
+        if (Test-Path $indexCandidate -PathType Leaf) { $filePath = $indexCandidate }
+    }
+
     if (Test-Path $filePath -PathType Leaf) {
         $ext = [System.IO.Path]::GetExtension($filePath)
         $contentType = $mime[$ext]
