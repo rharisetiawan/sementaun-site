@@ -12,15 +12,18 @@
 <meta property="og:title" content="Sementaun — Band Cover Pop/Rock asal Malang">
 <meta property="og:description" content="Video live cover, merchandise, blog musik, dan daftar studio band di Malang.">
 <meta property="og:image" content="https://sementaunband.weverx.com/assets/img/logo-sementaun.png">
+<meta property="og:image:width" content="1287">
+<meta property="og:image:height" content="832">
+<meta property="og:image:alt" content="Logo Sementaun">
 <meta property="og:site_name" content="Sementaun">
 <meta property="og:locale" content="id_ID">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="icon" href="/assets/img/logo-sementaun.png">
+<link rel="icon" href="/assets/img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://i.ytimg.com">
-<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@200;300;400;500;600;700;800&family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=Oswald:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 
 <script type="application/ld+json">
@@ -77,7 +80,7 @@
 <header class="site-header" id="siteHeader">
   <nav class="nav container" aria-label="Main">
     <a href="#hero" class="nav-logo" aria-label="Sementaun home">
-      <img src="/assets/img/logo-sementaun-transparent.png" alt="Sementaun">
+      <img src="/assets/img/logo-nav.png" alt="Sementaun" width="180" height="116">
     </a>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
@@ -99,7 +102,16 @@
   <section id="hero" class="hero">
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="hero-content">
-      <img src="/assets/img/logo-sementaun-transparent.png" alt="Sementaun" class="hero-logo">
+      <h1 class="hero-heading">
+        <img
+          src="/assets/img/logo-sementaun-transparent.png"
+          srcset="/assets/img/logo-hero-560.png 560w, /assets/img/logo-hero-800.png 800w, /assets/img/logo-sementaun-transparent.png 1287w"
+          sizes="(max-width: 636px) 88vw, 560px"
+          alt="Sementaun — Band Cover Pop/Rock asal Malang"
+          class="hero-logo"
+          width="1287" height="832"
+          fetchpriority="high">
+      </h1>
       <p class="hero-tagline">Started as a joke. Still kinda is.</p>
       <div class="hero-cta">
         <a href="#watch" class="btn btn-primary">Watch the Covers</a>
@@ -434,7 +446,7 @@
 <footer class="site-footer">
   <div class="container footer-grid">
     <div class="footer-brand">
-      <img src="/assets/img/logo-sementaun-transparent.png" alt="Sementaun" class="footer-logo">
+      <img src="/assets/img/logo-nav.png" alt="Sementaun" class="footer-logo" width="180" height="116">
       <p>Pop/rock cover band side project from Malang, Indonesia.</p>
     </div>
     <nav class="footer-col" aria-label="Explore">
@@ -459,6 +471,6 @@
   </div>
 </footer>
 
-<script src="/js/script.js"></script>
+<script src="/js/script.js" defer></script>
 </body>
 </html>

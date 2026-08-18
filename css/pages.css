@@ -44,6 +44,24 @@
 
 .page-section { margin-top: 64px; }
 
+/* ---------- 404 ---------- */
+.not-found {
+  min-height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 0;
+}
+
+.not-found-actions {
+  margin-top: 36px;
+  justify-content: flex-start;
+}
+
+@media (max-width: 520px) {
+  .not-found-actions { flex-direction: column; align-items: stretch; }
+}
+
 .page-section h2 {
   font-family: var(--font-display);
   font-weight: 700;
